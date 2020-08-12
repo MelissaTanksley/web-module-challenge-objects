@@ -7,11 +7,16 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, cost, category){
-    /* Code here */
+myFavFood = {name, cost, category};
+return myFavFood;
 }
+console.log(createMenuItem('steak', 15, 'Lunch'));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
+console.log(createMenuItem('Tea', 4.5, 'Drinks'))
+console.log(createMenuItem('BLT', 7, 'Lunch'))
+console.log(createMenuItem('Crab Benedict', 7, 'Breakfast'))
 
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
@@ -23,6 +28,21 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
+
+
+const hamburger = {name: "Hamburger", price: 18, category: "Lunch",
+discount: function(citizen) {
+
+
+  if (citizen === "Teacher" || citizen === "Student") {
+    return 13.5
+  }
+  if (citizen === "Public"); {
+    return 16.2
+  }
+}
+};
+console.log(hamburger)
 
 
 
@@ -40,11 +60,26 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+console.log('Task 3: ', reviews[5].feedback)
+
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+reviews.push({
+  name: 'Joshua',
+  rating: 1,
+  feedback: 'Just ok.',
+ })
+ 
+ console.log('Task 4: ', reviews[8])
+ 
+/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"*/
 
-/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+
+reviews[7].feedback =
+ 'this place is chill with really cool people, great for getting work done on weekdays'
+console.log('Task 5: ', reviews[7])
+
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
