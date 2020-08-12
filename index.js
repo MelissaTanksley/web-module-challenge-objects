@@ -93,10 +93,11 @@ and should return a string in the format `{name} gave the restaurant a {rating},
  * For example, if getReviewByIndex is invoked with reviews and the number 0
  * it will return `Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!`
 */
-function getReviewByIndex(reviews, index) {
-    /* code here */
-  }
-  
+
+function getReviewByIndex(arr, index) {
+  return arr[index];
+}
+console.log(getReviewByIndex(reviews, 5))
 
 /* Task 7: Write a function to get information about the most recent review called `getLastReview`
 
@@ -107,9 +108,11 @@ and should return a string in the format `name} gave the restaurant a {rating}, 
 
 For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
 */
-function getLastReview(/* code here */) {
-    /* code here */
-  } 
+
+function getLastReview(arr) {
+  console.log('Task 7: ', arr[reviews.length - 1])
+ }
+console.log(getLastReview);
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
@@ -126,9 +129,16 @@ function getLastReview(/* code here */) {
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
+ 
+function getReviewByRating(arr, rating) {
+  arr.map(x =>
+    x.rating === rating || x.rating === rating + 0.5
+      ? console.log('Stretch 1: ', x)
+      : false
+  )
+ }
+console.log (getReviewByRating(reviews, 4));
+ 
 
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
@@ -144,10 +154,14 @@ and should return an array of objects.
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }]
 */
-  function getLongReviews(/* code here */) {
-    /* code here */
-  }
   
+function getLongReviews(arr) {
+  return arr.filter(x =>
+  x.feedback.split(' ').length > 15 ? console.log('Stretch 2: ', x) : false
+)
+}
+console.log (getLongReviews(reviews));
+
 
 /* STRETCH 3:  This challenge is not related to the data above! 
 
@@ -166,8 +180,14 @@ The returned object should have the following characteristics:
          (2) returns the updated value of the `odometer`.
 */
 
-
-function carMaker(/* code here */) {
-    /* code here */
-    
-}
+function carMaker(num) {
+  return {
+    odometer: num,
+    drive: function (distance) {
+      this.odometer *= distance
+      return this.odometer
+    },
+  }
+ }
+ console.log(carMaker(3).drive(8))
+ 
